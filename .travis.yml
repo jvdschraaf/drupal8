@@ -9,11 +9,11 @@ script:
   - make test
 
 after_failure:
-  - docker logs lucasvanlierop/containerization-workshop
+  - docker logs jvdschraaf/drupal8
 
 after_success:
   - docker login --email=$DOCKER_EMAIL --username=$DOCKER_USERNAME --password=$DOCKER_PASSWORD
-  - if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then docker push lucasvanlierop/containerization-workshop:latest; fi
+  - if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then docker push jvdschraaf/drupal8:latest; fi
 
 branches:
   only:
